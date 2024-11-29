@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: <your-domain-or-minikube-ip>
+  - host: 
     http:
       paths:
       - path: /books
