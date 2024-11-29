@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: microservices-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: <your-domain-or-minikube-ip>
+    http:
+      paths:
+      - path: /books
+        pathType: Prefix
+        backend:
+          service:
+            name: book-service
+            port:
+              number: 5000
+      - path: /orders
+        pathType: Prefix
+        backend:
+          service:
+            name: order-service
+            port:
+              number: 5001
